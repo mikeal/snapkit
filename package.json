@@ -1,0 +1,30 @@
+{
+  "name": "snapkit",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bl": "^1.2.1",
+    "puppeteer": "^0.12.0",
+    "yargs": "^9.0.1"
+  },
+  "devDependencies": {
+    "codecov": "^2.3.1",
+    "cz-conventional-changelog": "^2.0.0",
+    "husky": "^0.14.3",
+    "semantic-release": "^8.2.0",
+    "standard": "^10.0.3",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "scripts": {
+    "test": "standard",
+    "commit": "git-cz",
+    "precommit": "npm test",
+    "prepush": "npm test",
+    "commitmsg": "validate-commit-msg",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "keywords": [],
+  "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
+  "license": "Apache-2.0"
+}
