@@ -1,6 +1,6 @@
 {
   "name": "snapkit",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -26,5 +26,9 @@
   },
   "keywords": [],
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikeal/snapkit.git"
+  }
 }
