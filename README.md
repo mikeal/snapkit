@@ -29,7 +29,7 @@ async close => snapkit.close()
 Accepts either HTML page content as as string or a URL to a remote site.
 
 - `options` <[Object]>
-  - `emualate` <[string]> Device to emulate, list of available devices at `snapkit.devices`
+  - `emulate` <[string]> Device to emulate, list of available devices at `snapkit.devices`
   - `transparency` <[boolean]> Hides default white background and allows capturing screenshots with transparency. Defaults to `false`.
   - `userAgent` <[string]>
   - `type` <[string]> Specify screenshot type, can be either `jpeg` or `png`. Defaults to 'png'.
