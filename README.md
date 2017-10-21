@@ -2,6 +2,12 @@
 
 Capture screenshots of websites on command line or REST API.
 
+<p>
+  <a href="https://www.patreon.com/bePatron?u=880479">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" height="40px" />
+  </a>
+</p>
+
 ```
 $ snapkit https://google.com --emulate="iPad" | open -a Preview.app -f
 ```
