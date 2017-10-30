@@ -43,7 +43,7 @@ const argv = yargs.argv
     })()
     if (image) {
       if (argv.output) {
-        fs.writeFile(argv.output, await image)
+        fs.writeFileSync(argv.output, await image)
       } else {
         process.stdout.write(await image)
       }
