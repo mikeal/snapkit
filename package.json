@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Capture screenshots of websites on command line or REST API.",
   "main": "index.js",
+  "bin": "bin.js",
   "dependencies": {
     "bl": "^1.2.1",
     "puppeteer": "^0.12.0",
