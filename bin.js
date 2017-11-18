@@ -19,6 +19,11 @@ const yargs = require('yargs')
     type: 'string',
     describe: 'output to file instead of stdout'
   })
+  .option('selector', {
+    alias: '$',
+    type: 'string',
+    describe: 'selector of element to capture'
+  })
 const argv = yargs.argv
 
 ;(async () => {

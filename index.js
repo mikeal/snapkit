@@ -6,7 +6,9 @@ const browser = puppeteer.launch()
 const snap = async (content, opts = {}) => {
   let _browser = await browser
   let page = await _browser.newPage()
+  let source = page
   let image
+
   try {
       /* istanbul ignore next */
     page.on('console', msg => console.log(msg.text))
@@ -32,20 +34,29 @@ const snap = async (content, opts = {}) => {
     }
     if (opts.selector) {
       await page.waitFor(opts.selector, {timeout: 10 * 1000})
+    
+      source = await page.$(opts.selector)
+    } else {
+      if (!opts.clip) {
+        let view = await page.viewport()
+        opts.clip = {x: 0, y: 0, width: view.width, height: view.height}
+      }
     }
-    if (!opts.clip) {
-      let view = await page.viewport()
-      opts.clip = {x: 0, y: 0, width: view.width, height: view.height}
-    }
-
+    
     let captureOptions = {
       fullPage: opts.fullPage,
-      clip: opts.clip,
       quality: opts.quality,
       type: opts.type,
       omitBackground: opts.transparency
     }
-    image = await page.screenshot(captureOptions)
+
+    if (opts.clip) {
+      // If a null/undefind clip is specified when using element capture, the whole screen is
+      // grabbed rather than just the element. Puppeteer bug?
+      captureOptions.clip = opts.clip
+    }
+      
+    image = await source.screenshot(captureOptions)
   } finally {
     await page.close()
   }
