@@ -34,7 +34,6 @@ const snap = async (content, opts = {}) => {
     }
     if (opts.selector) {
       await page.waitFor(opts.selector, {timeout: 10 * 1000})
-    
       source = await page.$(opts.selector)
     } else {
       if (!opts.clip) {
@@ -42,20 +41,17 @@ const snap = async (content, opts = {}) => {
         opts.clip = {x: 0, y: 0, width: view.width, height: view.height}
       }
     }
-    
     let captureOptions = {
       fullPage: opts.fullPage,
       quality: opts.quality,
       type: opts.type,
       omitBackground: opts.transparency
     }
-
     if (opts.clip) {
       // If a null/undefind clip is specified when using element capture, the whole screen is
       // grabbed rather than just the element. Puppeteer bug?
       captureOptions.clip = opts.clip
     }
-      
     image = await source.screenshot(captureOptions)
   } finally {
     await page.close()
